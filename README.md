@@ -1,56 +1,56 @@
 # zshrc-9191
 
-Mi terminal: **zsh + Oh My Zsh + Oh My Posh** con el tema `montys-r`.
+My terminal setup: **zsh + Oh My Zsh + Oh My Posh** with the `montys-r` theme.
 
-Prompt en dos líneas: sistema + host · ruta · rama de git · versión de node · tiempo del
-último comando · hora · si falló; y debajo `⚡usuario ❯❯`.
+Two-line prompt: OS + host · path · git branch · node version · last command duration ·
+time · exit status; and below it `⚡user ❯❯`.
 
-| Fichero | Va a |
+| File | Goes to |
 |---|---|
 | `zsh/zshrc` | `~/.zshrc` |
 | `oh-my-posh/montys-r.omp.json` | `~/.poshthemes/montys-r.omp.json` |
 
-## Instalación
+## Installation
 
 1. **zsh**: `sudo apt install zsh` (Debian/Ubuntu) · `sudo dnf install zsh` (Fedora) ·
-   en Bazzite, si no viene, `rpm-ostree install zsh` y reiniciar.
-2. **Oh My Zsh** (pregunta si poner zsh como shell por defecto: sí):
+   on Bazzite, if it is not already there, `rpm-ostree install zsh` and reboot.
+2. **Oh My Zsh** (it asks whether to make zsh your default shell: say yes):
    ```bash
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
    ```
-   Si no tienes `chsh` (Fedora/Bazzite): `sudo usermod -s "$(which zsh)" "$USER"` y volver a entrar.
-3. **Oh My Posh** (en `~/.local/bin`, sin sudo):
+   If `chsh` is not available (Fedora/Bazzite): `sudo usermod -s "$(which zsh)" "$USER"` and log in again.
+3. **Oh My Posh** (installs to `~/.local/bin`, no sudo):
    ```bash
    curl -s https://ohmyposh.dev/install.sh | bash -s
    ```
-4. **Este repo**, siempre **después** de Oh My Zsh (su instalador reescribe `~/.zshrc`):
+4. **This repo**, always **after** Oh My Zsh (its installer rewrites `~/.zshrc`):
    ```bash
    git clone https://github.com/Robert91911/zshrc-9191.git ~/zshrc-9191
    ~/zshrc-9191/install.sh
    exec zsh
    ```
-   `install.sh` crea enlaces simbólicos; si ya había un `~/.zshrc` de verdad, lo guarda como
-   `~/.zshrc.bak.<fecha>`. Para actualizar: `git -C ~/zshrc-9191 pull`.
+   `install.sh` creates symlinks; if there was already a real `~/.zshrc`, it is kept as
+   `~/.zshrc.bak.<date>`. To update: `git -C ~/zshrc-9191 pull`.
 
-## Fuente
+## Font
 
-El tema usa iconos de [Nerd Fonts](https://www.nerdfonts.com/). La fuente va en el equipo **desde
-el que miras** (no en el servidor al que te conectas por SSH):
+The theme uses [Nerd Fonts](https://www.nerdfonts.com/) icons. The font goes on the machine
+**you are looking from** (not on the server you SSH into):
 
 ```bash
 oh-my-posh font install meslo
 ```
 
-y elegir *MesloLGM Nerd Font* en la terminal.
+then pick *MesloLGM Nerd Font* in your terminal.
 
-Cuatro iconos del tema (U+F7DB, U+F553, U+FBAB, U+F525) son del rango antiguo de Material Design
-que Nerd Fonts v3 retiró; con una fuente nueva pueden salir como un cuadrado.
+Four icons in the theme (U+F7DB, U+F553, U+FBAB, U+F525) come from the old Material Design
+range that Nerd Fonts v3 removed; with a recent font they may show up as a box.
 
-## Lo propio de cada máquina
+## Machine-specific settings
 
-Alias, variables o tokens que no deben subirse van en `~/.zshrc.local`: el `zshrc` lo carga al
-final si existe, y no está en el repo.
+Aliases, variables or tokens that must not be committed go in `~/.zshrc.local`: `zshrc`
+sources it at the end if it exists, and it is not in the repo.
 
-## Créditos
+## Credits
 
-`montys-r` está basado en el tema `montys` de [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh).
+`montys-r` is based on the `montys` theme from [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh).
