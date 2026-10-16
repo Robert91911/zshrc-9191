@@ -1,0 +1,37 @@
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# oh-my-posh installed with the official script lives here, and zsh does not read ~/.profile
+export PATH="$HOME/.local/bin:$PATH"
+
+# Empty: the prompt is drawn by oh-my-posh
+ZSH_THEME=""
+
+plugins=(git docker-compose)
+
+source $ZSH/oh-my-zsh.sh
+
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/montys-r.omp.json)"
+
+### ctrl+arrows
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+# urxvt
+bindkey "\eOc" forward-word
+bindkey "\eOd" backward-word
+
+### ctrl+delete
+bindkey "\e[3;5~" kill-word
+# urxvt
+bindkey "\e[3^" kill-word
+
+### ctrl+backspace
+bindkey '^H' backward-kill-word
+
+### ctrl+shift+delete
+bindkey "\e[3;6~" kill-line
+# urxvt
+bindkey "\e[3@" kill-line
+
+# Per-machine settings and secrets: never committed
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
