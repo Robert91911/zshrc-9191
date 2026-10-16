@@ -12,13 +12,15 @@ time · exit status; and below it `⚡user ❯❯`.
 
 ## Installation
 
-1. **zsh**: `sudo apt install zsh` (Debian/Ubuntu) · `sudo dnf install zsh` (Fedora) ·
-   on Bazzite, if it is not already there, `rpm-ostree install zsh` and reboot.
+On Bazzite (or any immutable Fedora: Kinoite, Silverblue…) steps 1, 2 and the font are
+different: see [Bazzite](#bazzite) first.
+
+1. **zsh**: `sudo apt install zsh` (Debian/Ubuntu) · `sudo dnf install zsh` (Fedora).
 2. **Oh My Zsh** (it asks whether to make zsh your default shell: say yes):
    ```bash
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
    ```
-   If `chsh` is not available (Fedora/Bazzite): `sudo usermod -s "$(which zsh)" "$USER"` and log in again.
+   If `chsh` is not available: `sudo usermod -s "$(which zsh)" "$USER"` and log in again.
 3. **Oh My Posh** (installs to `~/.local/bin`, no sudo):
    ```bash
    curl -s https://ohmyposh.dev/install.sh | bash -s
@@ -45,6 +47,33 @@ then pick *MesloLGM Nerd Font* in your terminal.
 
 Four icons in the theme (U+F7DB, U+F553, U+FBAB, U+F525) come from the old Material Design
 range that Nerd Fonts v3 removed; with a recent font they may show up as a box.
+
+## Bazzite
+
+Everything except zsh itself goes in your home directory, so the immutable system is not a
+problem. What changes:
+
+1. **zsh is not included.** Layer it:
+   ```bash
+   rpm-ostree install zsh
+   ```
+   It only becomes available after a reboot. Save your work and reboot whenever it suits
+   you; then `which zsh` should print `/usr/bin/zsh`.
+2. **Do not change your login shell.** Install Oh My Zsh without prompts and without touching
+   the shell:
+   ```bash
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+   ```
+   then set **Konsole → Settings → Edit Current Profile → General → Command** to
+   `/usr/bin/zsh`. Only Konsole runs zsh; login and Game Mode stay on bash. If zsh ever breaks
+   (e.g. an update drops the layer), the system still boots and you just set the profile back
+   to `/bin/bash`.
+3. Steps 3 and 4 as above.
+4. **The font is needed here**, since this is the machine you look from. It ends up in
+   `~/.local/share/fonts`; pick it in **Konsole → Edit Current Profile → Appearance → Font**.
+
+The git segment of the prompt runs on every prompt: inside repos on network mounts (sshfs),
+the prompt can feel slow. The `docker-compose` plugin is harmless without Docker.
 
 ## Machine-specific settings
 
