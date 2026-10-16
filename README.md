@@ -64,13 +64,18 @@ problem. What changes:
    ```bash
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
    ```
-   then set **Konsole → Settings → Edit Current Profile → General → Command** to
-   `/usr/bin/zsh`. Only Konsole runs zsh; login and Game Mode stay on bash. If zsh ever breaks
-   (e.g. an update drops the layer), the system still boots and you just set the profile back
-   to `/bin/bash`.
-3. Steps 3 and 4 as above.
-4. **The font is needed here**, since this is the machine you look from. It ends up in
-   `~/.local/share/fonts`; pick it in **Konsole → Edit Current Profile → Appearance → Font**.
+3. Steps 3 and 4 as above, plus the font (needed here, since this is the machine you look
+   from).
+4. **Konsole profile** (checked on Konsole 26.08):
+   - Show the menu bar with **Ctrl+Shift+M** if it is hidden.
+   - **Settings → Create New Profile…** (with Konsole's built-in default profile there is no
+     *Edit Current Profile…*, because that profile is read-only).
+   - **General:** name it `zsh`, tick **Default profile**, **Command** `/usr/bin/zsh`.
+   - **Appearance → Font:** *MesloLGM Nerd Font*.
+   - **OK** and open a new tab.
+
+   Only Konsole runs zsh; login and Game Mode stay on bash. If zsh ever breaks (e.g. an update
+   drops the layer), the system still boots and you just switch back to the default profile.
 
 The git segment of the prompt runs on every prompt: inside repos on network mounts (sshfs),
 the prompt can feel slow. The `docker-compose` plugin is harmless without Docker.
