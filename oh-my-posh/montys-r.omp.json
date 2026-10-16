@@ -21,10 +21,10 @@
             "cache_duration": "none",
             "folder_icon": "\uf115",
             "folder_separator_icon": "\\",
-            "home_icon": "\uf7db",
+            "home_icon": "\ueb06",
             "style": "agnoster_short"
           },
-          "template": " <#000>\uf07b \uf553</> {{ .Path }} ",
+          "template": " <#000>\uf07b \uea9c</> {{ .Path }} ",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
           "background": "#DA627D",
@@ -62,7 +62,7 @@
             "always_enabled": true,
             "cache_duration": "none"
           },
-          "template": " \ufbab {{ .FormattedMs }} ",
+          "template": " \ueba2 {{ .FormattedMs }} ",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
           "background": "#83769c",
@@ -87,7 +87,7 @@
             "cache_duration": "none"
           },
           "trailing_diamond": "\ue0b4",
-          "template": " {{ if gt .Code 0 }}\uf525{{ else }}\uf469{{ end }}",
+          "template": " {{ if gt .Code 0 }}\uf421{{ else }}\uf469{{ end }}",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
           "background": "#2e9599",

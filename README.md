@@ -45,9 +45,6 @@ oh-my-posh font install meslo
 
 then pick *MesloLGM Nerd Font* in your terminal.
 
-Four icons in the theme (U+F7DB, U+F553, U+FBAB, U+F525) come from the old Material Design
-range that Nerd Fonts v3 removed; with a recent font they may show up as a box.
-
 ## Bazzite
 
 Everything except zsh itself goes in your home directory, so the immutable system is not a
