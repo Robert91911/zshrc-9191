@@ -7,9 +7,12 @@ export PATH="$HOME/.local/bin:$PATH"
 # Empty: the prompt is drawn by oh-my-posh
 ZSH_THEME=""
 
-plugins=(git docker-compose)
+plugins=(git docker docker-compose sudo z extract colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
+
+# Trailing space: the word after sudo is alias-expanded too (sudo dcupd)
+alias sudo='sudo '
 
 eval "$(oh-my-posh init zsh --config ~/.poshthemes/montys-r.omp.json)"
 

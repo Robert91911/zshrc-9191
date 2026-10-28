@@ -75,7 +75,7 @@ problem. What changes:
    drops the layer), the system still boots and you just switch back to the default profile.
 
 The git segment of the prompt runs on every prompt: inside repos on network mounts (sshfs),
-the prompt can feel slow. The `docker-compose` plugin is harmless without Docker.
+the prompt can feel slow. The `docker` and `docker-compose` plugins are harmless without Docker.
 
 ## Machine-specific settings
 
